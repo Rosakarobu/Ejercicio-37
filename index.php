@@ -1,9 +1,9 @@
 <?php
-// Aqui inicio la sesion, tiene que ir hasta arriba
+// Inicia la sesion
 session_start();
 require_once "db.php";
 
-// Creo la tabla automaticamente si no existe
+// Se crea la tabla automaticamente si no existe
 $conn->query("CREATE TABLE IF NOT EXISTS usuarios (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nombres VARCHAR(100) NOT NULL,
@@ -15,7 +15,7 @@ $conn->query("CREATE TABLE IF NOT EXISTS usuarios (
 $error   = "";
 $mensaje = "";
 
-// Aqui registro un usuario nuevo
+// Registra un usuario nuevo
 if (isset($_POST["accion"]) && $_POST["accion"] === "registrar") {
   $nombres    = trim($_POST["nombres"]);
   $apellidos  = trim($_POST["apellidos"]);
@@ -31,7 +31,7 @@ if (isset($_POST["accion"]) && $_POST["accion"] === "registrar") {
   }
 }
 
-// Aqui proceso el login
+// Se procesa el login
 if (isset($_POST["accion"]) && $_POST["accion"] === "login") {
   $correo     = trim($_POST["correo"]);
   $contrasena = trim($_POST["contrasena"]);
@@ -50,7 +50,7 @@ if (isset($_POST["accion"]) && $_POST["accion"] === "login") {
   }
 }
 
-// Aqui cierro la sesion
+// Cerrar la sesion
 if (isset($_GET["logout"])) {
   session_destroy();
   header("Location: index.php");
@@ -62,7 +62,7 @@ if (isset($_GET["logout"])) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ejercicio 37 - Sesiones</title>
+  <title>Ejercicio 37 - Rosa Karina Rosas Burgueño</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Georgia, serif; background-color: #fff0f5; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 2rem; }
@@ -87,7 +87,7 @@ if (isset($_GET["logout"])) {
 
     <?php if (isset($_SESSION["usuario_id"])): ?>
 
-      <!-- Aqui muestro la seccion exclusiva solo si hay sesion activa -->
+      <!-- Exclusiva solo si hay sesion activa -->
       <h1>Hola, <?= htmlspecialchars($_SESSION["usuario_nombre"]) ?></h1>
       <p class="subtitulo">Has iniciado sesion correctamente</p>
 
@@ -100,8 +100,7 @@ if (isset($_GET["logout"])) {
 
     <?php else: ?>
 
-      <h1>Ejercicio 37 — Sesiones PHP</h1>
-      <p class="subtitulo">Inicia sesion o registrate</p>
+      <h1>Ejercicio 37 — Sesiones</h1>
 
       <?php if ($error): ?>
         <div class="error"><?= htmlspecialchars($error) ?></div>
@@ -111,7 +110,7 @@ if (isset($_GET["logout"])) {
         <div class="mensaje"><?= htmlspecialchars($mensaje) ?></div>
       <?php endif; ?>
 
-      <!-- Aqui pongo el formulario de login -->
+      <!-- Formulario de login -->
       <h2>Iniciar sesion</h2>
       <form method="POST" action="">
         <input type="hidden" name="accion" value="login" />
@@ -124,7 +123,7 @@ if (isset($_GET["logout"])) {
 
       <div class="separador">— o registrate —</div>
 
-      <!-- Aqui pongo el formulario de registro -->
+      <!-- Formulario de registro -->
       <h2>Registrarse</h2>
       <form method="POST" action="">
         <input type="hidden" name="accion" value="registrar" />

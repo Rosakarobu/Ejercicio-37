@@ -1,5 +1,5 @@
 <?php
-// Aqui conecto a la base de datos de Railway
+// Aqui se conecta la base de datos de Railway
 $host     = getenv("MYSQLHOST");
 $usuario  = getenv("MYSQLUSER");
 $password = getenv("MYSQLPASSWORD");

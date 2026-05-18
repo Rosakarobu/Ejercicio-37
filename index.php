@@ -115,7 +115,7 @@ if (isset($_GET["logout"])) {
       <form method="POST" action="">
         <input type="hidden" name="accion" value="login" />
         <label>Correo electronico</label>
-        <input type="email" name="correo" placeholder="correo" required />
+        <input type="email" name="correo" placeholder="Correo" required />
         <label>Contrasena</label>
         <input type="password" name="contrasena" required />
         <button type="submit">Entrar</button>

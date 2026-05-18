@@ -115,7 +115,7 @@ if (isset($_GET["logout"])) {
       <form method="POST" action="">
         <input type="hidden" name="accion" value="login" />
         <label>Correo electronico</label>
-        <input type="email" name="correo" placeholder="tu@correo.com" required />
+        <input type="email" name="correo" placeholder="correo" required />
         <label>Contrasena</label>
         <input type="password" name="contrasena" required />
         <button type="submit">Entrar</button>
@@ -128,11 +128,11 @@ if (isset($_GET["logout"])) {
       <form method="POST" action="">
         <input type="hidden" name="accion" value="registrar" />
         <label>Nombre(s)</label>
-        <input type="text" name="nombres" placeholder="Ej: Maria" required />
+        <input type="text" name="nombres" placeholder="Ej: Rosa" required />
         <label>Apellido(s)</label>
-        <input type="text" name="apellidos" placeholder="Ej: Lopez" required />
+        <input type="text" name="apellidos" placeholder="Ej: Rosas" required />
         <label>Correo electronico</label>
-        <input type="email" name="correo" placeholder="tu@correo.com" required />
+        <input type="email" name="correo" placeholder="Correo" required />
         <label>Contrasena</label>
         <input type="password" name="contrasena" required />
         <button type="submit">Registrarse</button>
